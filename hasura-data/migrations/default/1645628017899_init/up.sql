@@ -57,3 +57,7 @@ ALTER TABLE ONLY public.order_items
     ADD CONSTRAINT order_items_dish_fkey FOREIGN KEY (dish) REFERENCES public.dishes(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 ALTER TABLE ONLY public.order_items
     ADD CONSTRAINT order_items_order_fkey FOREIGN KEY ("order") REFERENCES public.orders(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
+CREATE TABLE public.billinfo (
+    id integer NOT NULL,
+    amount integer NOT NULL
+);
