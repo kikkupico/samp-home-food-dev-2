@@ -1,5 +1,5 @@
 name: 'preview-apps'
-on: # rebuild any PRs and main branch changes; test revoke
+on: # rebuild any PRs and main branch changes; test revoke2
   pull_request:
 jobs:
   hasura-cloud-preview:
