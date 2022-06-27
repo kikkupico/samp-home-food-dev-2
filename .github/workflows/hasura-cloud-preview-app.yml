@@ -27,5 +27,5 @@ jobs:
           number: ${{github.event.number}}
           repository: "kikkupico/samp-home-food-dev-2"
           message: |
-            Console URL available at ${{steps.hasura_cloud_preview.outputs.consoleURL}}
-            GraphQL Endpoint available at ${{steps.hasura_cloud_preview.outputs.graphQLEndpoint}}
+            Console URL available at ${{steps.hasura-cloud-preview.outputs.consoleURL}}
+            GraphQL Endpoint available at ${{steps.hasura-cloud-preview.outputs.graphQLEndpoint}}
