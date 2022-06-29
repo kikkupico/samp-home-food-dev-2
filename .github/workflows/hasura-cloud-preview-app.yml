@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: hasura/hasura-cloud-preview-apps@issue-73
+      - uses: hasura/hasura-cloud-preview-apps@ram/reuse-db-fix
         with:
           name: "preview-samp-home-food-${{github.env.GITHUB_HEAD_REF}}${{github.event.number}}"
           postgresDBConfig: |
