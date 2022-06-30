@@ -1,4 +1,4 @@
-name: "preview-apps"
+name: 'preview-apps'
 on: # rebuild any PRs and main branch changes; test1
   pull_request:
 jobs:
@@ -16,7 +16,7 @@ jobs:
           region: us-west-1
           tier: cloud_free
           hasuraEnv: |
-            TEST=TEST
+            PG_DATABASE_URL=${{secrets.POSTGRES_SERVER_CONNECTION_URI}}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           HASURA_CLOUD_ACCESS_TOKEN: ${{secrets.HASURA_CLOUD_ACCESS_TOKEN}}
