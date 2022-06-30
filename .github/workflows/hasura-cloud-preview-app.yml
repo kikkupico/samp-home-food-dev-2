@@ -1,17 +1,17 @@
 name: 'preview-apps'
-on: # rebuild any PRs and main branch changes
+on: # rebuild any PRs and main branch changes; test1
   pull_request:
 jobs:
   hasura-cloud-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: hasura/hasura-cloud-preview-apps@v0.1.4
+      - uses: hasura/hasura-cloud-preview-apps@ram/reuse-db-fix
         with:
           name: "preview-samp-home-food-${{github.env.GITHUB_HEAD_REF}}${{github.event.number}}"
           postgresDBConfig: |
             POSTGRES_SERVER_CONNECTION_URI=${{secrets.POSTGRES_SERVER_CONNECTION_URI}}
-            PG_ENV_VARS_FOR_HASURA=PG_DB_URL_1,PG_DB_URL_2
+            PG_ENV_VARS_FOR_HASURA=PG_DB_URL_1,PG_DB_URL_2,PG_DB_URL_3
           hasuraProjectDirectoryPath: hasura-data
           region: us-west-1
           tier: cloud_free
@@ -27,5 +27,5 @@ jobs:
           number: ${{github.event.number}}
           repository: "kikkupico/samp-home-food-dev-2"
           message: |
-            Console URL available at ${{steps.hasura_cloud_preview.outputs.consoleURL}}
-            GraphQL Endpoint available at ${{steps.hasura_cloud_preview.outputs.graphQLEndpoint}}
+            Console URL available at ${{steps.hasura-cloud-preview.outputs.consoleURL}}
+            GraphQL Endpoint available at ${{steps.hasura-cloud-preview.outputs.graphQLEndpoint}}
